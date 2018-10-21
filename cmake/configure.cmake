@@ -20,6 +20,7 @@ check_include_files ( "sys/signalfd.h" HAVE_SYS_SIGNALFD_H )
 check_include_files ( "sys/stat.h" HAVE_SYS_STAT_H )
 check_include_files ( "sys/types.h" HAVE_SYS_TYPES_H )
 check_include_files ( unistd.h HAVE_UNISTD_H )
+check_include_files ( "sys/syscall.h" HAVE_CLOCK_SYSCALL )
 
 check_function_exists ( clock_gettime HAVE_CLOCK_GETTIME )
 check_function_exists ( epoll_ctl HAVE_EPOLL_CTL )
@@ -36,7 +37,7 @@ check_function_exists ( signalfd HAVE_SIGNALFD )
 find_library ( HAVE_LIBRT rt )
 
 # Tweaks
-set ( HAVE_CLOCK_SYSCALL ${HAVE_CLOCK_GETTIME} )
+#set ( HAVE_CLOCK_SYSCALL ${HAVE_CLOCK_GETTIME} )
 
 
 

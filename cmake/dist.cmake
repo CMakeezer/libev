@@ -159,10 +159,18 @@ macro ( install_library )
       set_target_properties ( ${_file} PROPERTIES VERSION ${DIST_VERSION}
                               SOVERSION ${DIST_VERSION} )
     endif ()
+
     install ( TARGETS ${_file}
+              EXPORT ${_file}-cmake
               RUNTIME DESTINATION ${INSTALL_BIN} COMPONENT Runtime
               LIBRARY DESTINATION ${INSTALL_LIB} COMPONENT Runtime 
               ARCHIVE DESTINATION ${INSTALL_LIB} COMPONENT Library )
+    install(
+            EXPORT ${_file}-cmake
+            FILE ${_file}-config.cmake
+            NAMESPACE ${_file}::
+            DESTINATION share/${_file}/cmake)
+
   endforeach()
 endmacro ()
 

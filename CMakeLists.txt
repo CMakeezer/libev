@@ -5,7 +5,7 @@
 # Please note that the package source code is licensed under its own license.
 
 project ( libev C )
-cmake_minimum_required ( VERSION 2.8 )
+cmake_minimum_required ( VERSION 3.0 )
 include ( cmake/dist.cmake )
 include ( configure )
 
@@ -23,7 +23,9 @@ endif ()
 
 add_library ( ev ${EV_SRC} )
 target_link_libraries ( ev ${EV_LIBS} )
-
+target_include_directories(ev PUBLIC 
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
+	$<INSTALL_INTERFACE:include>)
 install_library ( ev )
 install_header ( ev.h ev++.h event.h )
 install_data ( LICENSE README )
