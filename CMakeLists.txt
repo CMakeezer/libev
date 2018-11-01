@@ -25,7 +25,8 @@ add_library ( ev ${EV_SRC} )
 target_link_libraries ( ev ${EV_LIBS} )
 target_include_directories(ev PUBLIC 
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-	$<INSTALL_INTERFACE:include>)
+	$<INSTALL_INTERFACE:include>
+	$<INSTALL_INTERFACE:include/ev>)
 install_library ( ev )
 install_header ( ev.h ev++.h event.h )
 install_data ( LICENSE README )
